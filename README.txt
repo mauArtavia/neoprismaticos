@@ -47,25 +47,13 @@ Forge Discord: https://discord.minecraftforge.net/
 
 
 
+TODO:
 
+Perfecto, el setup está completo. Ahora sí arrancamos con el código.
+El orden va a ser:
 
-
-rpgclasses/
-├── capability/
-│   └── PlayerClassCapability.java     ← guarda la clase elegida por jugador
-├── classes/
-│   ├── RPGClass.java                  ← clase abstracta base
-│   ├── impl/
-│   │   ├── OuterClass.java
-│   │   ├── MaupoolClass.java
-│   │   └── ... (13 clases total)
-├── ability/
-│   ├── Ability.java                   ← interfaz base
-│   └── impl/ ...                     ← habilidades concretas
-├── event/
-│   ├── PlayerJoinHandler.java         ← GUI de selección al entrar
-│   └── AbilityTickHandler.java        ← aplica efectos pasivos
-├── network/
-│   └── ClassSelectionPacket.java      ← cliente → servidor
-└── gui/
-    └── ClassSelectionScreen.java      ← pantalla de selección
+RPGClass.java — enum con los 13 personajes
+PlayerClassCapability.java — guarda qué clase eligió cada jugador, persiste entre sesiones
+ClassSelectionScreen.java — pantalla de selección que aparece la primera vez
+PlayerJoinHandler.java — detecta cuando el jugador entra y muestra la pantalla
+Habilidades de las primeras 2-3 clases

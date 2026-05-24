@@ -1,5 +1,7 @@
 package com.martaviadev.neoprismaticos;
 
+import com.martaviadev.neoprismaticos.capability.PlayerClassProvider;
+import com.martaviadev.neoprismaticos.event.CapabilityEventHandler;
 import com.mojang.logging.LogUtils;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -19,7 +21,7 @@ public class NeoPrismaticos {
 
         modEventBus.addListener(this::commonSetup);
 
-        MinecraftForge.EVENT_BUS.register(this);
+        MinecraftForge.EVENT_BUS.register(new CapabilityEventHandler());
 
         LOGGER.info("NeoPrismaticos cargando...");
     }
