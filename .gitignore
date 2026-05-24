@@ -1,0 +1,23 @@
+# Gradle
+.gradle/
+build/
+out/
+
+# Run directories
+run/
+run-data/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# Generated sources
+src/generated/
+
+# Forge MDK zip (ya no lo necesitas en el repo)
+*.zip
+
+# OS
+.DS_Store
+Thumbs.db
