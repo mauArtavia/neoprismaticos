@@ -2,6 +2,8 @@ package com.martaviadev.neoprismaticos;
 
 import com.martaviadev.neoprismaticos.capability.PlayerClassProvider;
 import com.martaviadev.neoprismaticos.event.CapabilityEventHandler;
+import com.martaviadev.neoprismaticos.network.NetworkHandler;
+import com.martaviadev.neoprismaticos.event.PlayerJoinHandler;
 import com.mojang.logging.LogUtils;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -22,11 +24,13 @@ public class NeoPrismaticos {
         modEventBus.addListener(this::commonSetup);
 
         MinecraftForge.EVENT_BUS.register(new CapabilityEventHandler());
+        MinecraftForge.EVENT_BUS.register(new PlayerJoinHandler());  // ← aquí
 
         LOGGER.info("NeoPrismaticos cargando...");
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
+        event.enqueueWork(NetworkHandler::register);
         LOGGER.info("NeoPrismaticos: Common Setup completado.");
     }
 }
